@@ -794,64 +794,113 @@ document.querySelectorAll('.filter-btn').forEach(button => {
     });
 });
 </script>
-        <!-- Page Ressources -->
-<div id="ressources-page" class="page-content hidden">
-    <section class="py-16">
+        <!-- Page Ressources --><div id="ressources-page" class="page-content hidden">
+    <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gradient mb-4">📁 Ressources</h1>
-                <p class="text-xl text-gray-600">Documents, TD, TP et supports de cours</p>
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Espace Ressources Détaillées 📖</h1>
+                <p class="text-xl text-gray-600">Sélectionnez un module pour accéder à ses TD, TP, PDF et outils.</p>
             </div>
 
-            <div class="grid lg:grid-cols-4 gap-8">
-                <!-- TD -->
-                <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl">📝</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-4">Travaux Dirigés</h3>
-                    <p class="text-gray-600 text-center mb-6">Exercices corrigés et énoncés</p>
-                    <button onclick="openPage('dossiers-page')" class="w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-yellow-600 transition-colors">
-                        Parcourir les TD
+            <div id="ressource-list-view">
+                <div class="flex flex-wrap gap-4 justify-center mb-12 border-b pb-4">
+                    <button class="ressource-semestre-filter-btn active bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:bg-indigo-700 transition duration-300" data-semestre="all">
+                        Tous les Semestres
+                    </button>
+                    <button class="ressource-semestre-filter-btn bg-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-400 transition duration-300" data-semestre="s5">
+                        Semestre 5
+                    </button>
+                    <button class="ressource-semestre-filter-btn bg-gray-300 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-400 transition duration-300" data-semestre="s6">
+                        Semestre 6
                     </button>
                 </div>
 
-                <!-- TP -->
-                <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
-                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl">🔬</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-4">Travaux Pratiques</h3>
-                    <p class="text-gray-600 text-center mb-6">Manipulations et projets</p>
-                    <button onclick="openPage('dossiers-page')" class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors">
-                        Parcourir les TP
-                    </button>
-                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="ressource-modules-list">
 
-                <!-- PDF -->
-                <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
-                    <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl">📄</span>
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-red-500" data-semestre="s5" onclick="showRessourceDetails('programmation-objet')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Programmation orientée objet</h3>
+                        <p class="text-red-500 text-sm font-medium">Semestre 5</p>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4">Documents PDF</h3>
-                    <p class="text-gray-600 text-center mb-6">Supports et références</p>
-                    <button onclick="openPage('dossiers-page')" class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition-colors">
-                        Parcourir les PDF
-                    </button>
-                </div>
+                    
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-orange-500" data-semestre="s5" onclick="showRessourceDetails('developpement-web')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Développement Web</h3>
+                        <p class="text-orange-500 text-sm font-medium">Semestre 5</p>
+                    </div>
 
-                <!-- Outils -->
-                <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
-                    <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl">🛠️</span>
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-indigo-500" data-semestre="s5" onclick="showRessourceDetails('base-donnees')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Base de données</h3>
+                        <p class="text-indigo-500 text-sm font-medium">Semestre 5</p>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4">Outils</h3>
-                    <p class="text-gray-600 text-center mb-6">Logiciels et utilitaires</p>
-                    <button onclick="openPage('dossiers-page')" class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600 transition-colors">
-                        Voir les outils
-                    </button>
+                    
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-blue-500" data-semestre="s5" onclick="showRessourceDetails('e-business')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">E-business, E-commerce</h3>
+                        <p class="text-blue-500 text-sm font-medium">Semestre 5</p>
+                    </div>
+                    
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-green-500" data-semestre="s5" onclick="showRessourceDetails('systeme-information')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Système d'information</h3>
+                        <p class="text-green-500 text-sm font-medium">Semestre 5</p>
+                    </div>
+                    
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-purple-500" data-semestre="s5" onclick="showRessourceDetails('marketing-digital')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Marketing Digital</h3>
+                        <p class="text-purple-500 text-sm font-medium">Semestre 5</p>
+                    </div>
+
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-yellow-600" data-semestre="s6" onclick="showRessourceDetails('conduite-projet')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Conduite de projet digital</h3>
+                        <p class="text-yellow-600 text-sm font-medium">Semestre 6</p>
+                    </div>
+                    
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-pink-500" data-semestre="s6" onclick="showRessourceDetails('business-intelligence')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Outils d'aide à la décision et BI</h3>
+                        <p class="text-pink-500 text-sm font-medium">Semestre 6</p>
+                    </div>
+                    
+                    <div class="ressource-module-card bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-transform transform hover:scale-[1.02] cursor-pointer border-t-4 border-teal-500" data-semestre="s6" onclick="showRessourceDetails('developpement-mobile')">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Développement Mobile et IoT</h3>
+                        <p class="text-teal-500 text-sm font-medium">Semestre 6</p>
+                    </div>
+
                 </div>
             </div>
+
+            <div id="ressource-details-view" class="hidden">
+                <button onclick="hideRessourceDetails()" class="mb-10 flex items-center text-indigo-600 hover:text-indigo-800 transition duration-300 font-bold text-lg">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Retour à la liste des modules
+                </button>
+                
+                <h2 id="ressource-module-title" class="text-4xl font-extrabold text-gray-900 mb-10 border-b-4 border-indigo-100 pb-4">Titre du Module</h2>
+
+                <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
+                    
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 border-l-4 border-indigo-600">
+                        <h3 class="text-xl font-bold mb-4 text-indigo-700 flex items-center">📝 Travaux Dirigés</h3>
+                        <div id="ressource-td-buttons" class="flex flex-wrap gap-3">
+                            </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 border-l-4 border-green-600">
+                        <h3 class="text-xl font-bold mb-4 text-green-700 flex items-center">🧪 Travaux Pratiques</h3>
+                        <div id="ressource-tp-buttons" class="flex flex-wrap gap-3">
+                             </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 border-l-4 border-red-600">
+                        <h3 class="text-xl font-bold mb-4 text-red-700 flex items-center">📄 Documents PDF</h3>
+                        <div id="ressource-pdf-buttons" class="flex flex-wrap gap-3">
+                             </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 border-l-4 border-yellow-600">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-700 flex items-center">🛠️ Outils & Liens</h3>
+                        <div id="ressource-outils-buttons" class="flex flex-wrap gap-3">
+                             </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 </div>
@@ -1574,5 +1623,272 @@ function showCoursPage() {
     document.getElementById('chapitres-page').classList.add('hidden');
     document.getElementById('cours-page').classList.remove('hidden');
 }
+</script>
+
+
+<script>
+    // NOTE: C'est la source de données centralisée pour toutes les ressources.
+    const MODULES_DATA = {
+        // --- Semestre 5 ---
+        'programmation-objet': {
+            title: 'Programmation Orientée Objet',
+            td: [
+                { label: 'TD 1: Introduction', link: 'https://drive.google.com/file/d/18j09pIQJo9EcDddWEyFtUmBPICGwImCS/view?usp=sharing' },
+                { label: 'TD 2: Héritage', link: 'LIEN_DRIVE_POO_TD2' },
+                { label: 'TD 3: Polymorphisme', link: 'LIEN_DRIVE_POO_TD3' }
+            ],
+            tp: [
+                { label: 'TP 1: Base Java', link: 'LIEN_DRIVE_POO_TP1' },
+                { label: 'TP 2: Design Patterns', link: 'LIEN_DRIVE_POO_TP2' },
+                { label: 'TP 3: GUI', link: 'LIEN_DRIVE_POO_TP3' }
+            ],
+            pdf: [
+                { label: 'Cours Complet (PDF)', link: 'LIEN_DRIVE_POO_PDF_COURS' },
+                { label: 'Slides du Prof', link: 'LIEN_DRIVE_POO_PDF_SLIDES' }
+            ],
+            outils: [
+                { label: 'IntelliJ IDEA', link: 'https://www.jetbrains.com/idea/' },
+                { label: 'JDK (Java)', link: 'https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html' }
+            ]
+        },
+        'developpement-web': {
+            title: 'Développement Web',
+            td: [
+                { label: 'TD 1: HTML/CSS', link: 'LIEN_DRIVE_WEB_TD1' },
+                { label: 'TD 2: Introduction au PHP', link: 'LIEN_DRIVE_WEB_TD2' }
+            ],
+            tp: [
+                { label: 'TP 1: Formulaires et Validation', link: 'LIEN_DRIVE_WEB_TP1' },
+                { label: 'TP 2: Connexion BDD (PDO)', link: 'LIEN_DRIVE_WEB_TP2' }
+            ],
+            pdf: [
+                { label: 'Manuel PHP', link: 'LIEN_DRIVE_WEB_PDF_PHP' },
+            ],
+            outils: [
+                { label: 'VS Code', link: 'https://code.visualstudio.com/' },
+                { label: 'XAMPP', link: 'https://www.apachefriends.org/fr/index.html' }
+            ]
+        },
+        'base-donnees': {
+            title: 'Base de données',
+            td: [
+                { label: 'TD 1: Modèle Relationnel', link: 'LIEN_DRIVE_BDD_TD1' },
+                { label: 'TD 2: Normalisation', link: 'LIEN_DRIVE_BDD_TD2' }
+            ],
+            tp: [
+                { label: 'TP 1: SQL Basique', link: 'LIEN_DRIVE_BDD_TP1' },
+                { label: 'TP 2: Jointures et Vues', link: 'LIEN_DRIVE_BDD_TP2' }
+            ],
+            pdf: [
+                { label: 'Cours Complet SQL/Merise', link: 'LIEN_DRIVE_BDD_PDF_COURS' }
+            ],
+            outils: [
+                { label: 'MySQL Workbench', link: 'https://www.mysql.com/products/workbench/' }
+            ]
+        },
+        'e-business': {
+            title: 'E-business, E-commerce',
+            td: [
+                { label: 'TD 1: Études de Cas', link: 'LIEN_DRIVE_EBIZ_TD1' }
+            ],
+            tp: [], // Pas de TP spécifique
+            pdf: [
+                { label: 'Slides E-commerce', link: 'LIEN_DRIVE_EBIZ_PDF_SLIDES' }
+            ],
+            outils: [
+                { label: 'Analyse SWOT', link: 'LIEN_DRIVE_EBIZ_OUTIL_SWOT' }
+            ]
+        },
+        'systeme-information': {
+            title: "Système d'information",
+            td: [
+                { label: 'TD 1: Schéma de Flux', link: 'LIEN_DRIVE_SI_TD1' }
+            ],
+            tp: [
+                { label: 'TP 1: Modélisation UML', link: 'LIEN_DRIVE_SI_TP1' }
+            ],
+            pdf: [
+                { label: 'Cours complet SI', link: 'LIEN_DRIVE_SI_PDF_COURS' }
+            ],
+            outils: [
+                { label: 'Lucidchart (Diagrammes)', link: 'https://www.lucidchart.com/' }
+            ]
+        },
+        'marketing-digital': {
+            title: 'Marketing Digital et Digital Analytics',
+            td: [
+                { label: 'TD 1: SEO', link: 'LIEN_DRIVE_MARKETING_TD1' }
+            ],
+            tp: [
+                { label: 'TP 1: Google Analytics', link: 'LIEN_DRIVE_MARKETING_TP1' }
+            ],
+            pdf: [
+                { label: 'Ebook Marketing', link: 'LIEN_DRIVE_MARKETING_PDF_EBOOK' }
+            ],
+            outils: [
+                { label: 'Google Analytics', link: 'https://analytics.google.com/' }
+            ]
+        },
+        
+        // --- Semestre 6 ---
+        'conduite-projet': {
+            title: 'Conduite de projet digital',
+            td: [
+                { label: 'TD 1: Méthodes Agiles', link: 'LIEN_DRIVE_CP_TD1' }
+            ],
+            tp: [
+                { label: 'TP 1: JIRA/Trello', link: 'LIEN_DRIVE_CP_TP1' }
+            ],
+            pdf: [
+                { label: 'Manuel SCRUM', link: 'LIEN_DRIVE_CP_PDF_SCRUM' }
+            ],
+            outils: [
+                { label: 'Trello', link: 'https://trello.com/' },
+                { label: 'JIRA', link: 'https://www.atlassian.com/software/jira' }
+            ]
+        },
+        'business-intelligence': {
+            title: "Outils d'aide à la décision et BI",
+            td: [
+                { label: 'TD 1: Data Modeling', link: 'LIEN_DRIVE_BI_TD1' }
+            ],
+            tp: [
+                { label: 'TP 1: Power BI', link: 'LIEN_DRIVE_BI_TP1' },
+                { label: 'TP 2: Data Mining', link: 'LIEN_DRIVE_BI_TP2' }
+            ],
+            pdf: [
+                { label: 'Présentations BI', link: 'LIEN_DRIVE_BI_PDF_COURS' }
+            ],
+            outils: [
+                { label: 'Power BI Desktop', link: 'https://powerbi.microsoft.com/en-us/downloads/' },
+                { label: 'Python (Pandas)', link: 'https://www.python.org/' }
+            ]
+        },
+        'developpement-mobile': {
+            title: 'Développement Mobile et Internet des objets',
+            td: [
+                { label: 'TD 1: Principes Android', link: 'LIEN_DRIVE_MOBILE_TD1' }
+            ],
+            tp: [
+                { label: 'TP 1: Hello World Android', link: 'LIEN_DRIVE_MOBILE_TP1' },
+                { label: 'TP 2: Capteurs IoT', link: 'LIEN_DRIVE_MOBILE_TP2' }
+            ],
+            pdf: [
+                { label: 'Cours Kotlin/Android', link: 'LIEN_DRIVE_MOBILE_PDF_ANDROID' }
+            ],
+            outils: [
+                { label: 'Android Studio', link: 'https://developer.android.com/studio' },
+                { label: 'Arduino IDE', link: 'https://www.arduino.cc/en/software' }
+            ]
+        },
+    };
+
+    /**
+     * Crée et retourne un bouton (balise <a>) pour une ressource.
+     */
+    function createResourceButton(resource, styleClasses) {
+        const button = document.createElement('a');
+        button.href = resource.link;
+        button.target = '_blank';
+        // Style plus élégant pour les boutons de ressources
+        button.className = `px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition duration-300 ${styleClasses}`;
+        button.textContent = resource.label;
+        return button;
+    }
+
+    /**
+     * Génère les boutons de ressources dans leur conteneur.
+     */
+    function generateResourceButtons(type, resources, defaultStyleClasses, emptyMessage) {
+        const container = document.getElementById(`ressource-${type}-buttons`);
+        container.innerHTML = ''; 
+
+        if (resources && resources.length > 0) {
+            resources.forEach(resource => {
+                // Utiliser les classes de couleur spécifiques (ex: bg-indigo-100 pour TD, bg-green-100 pour TP)
+                const styleClasses = (type === 'td' ? 'bg-indigo-100 text-indigo-800 hover:bg-indigo-200' :
+                                      type === 'tp' ? 'bg-green-100 text-green-800 hover:bg-green-200' :
+                                      type === 'pdf' ? 'bg-red-100 text-red-800 hover:bg-red-200' :
+                                      'bg-yellow-100 text-yellow-800 hover:bg-yellow-200');
+
+                const button = createResourceButton(resource, styleClasses);
+                container.appendChild(button);
+            });
+        } else {
+             const defaultMessage = document.createElement('p');
+             defaultMessage.className = 'text-gray-500 text-sm italic py-2';
+             defaultMessage.textContent = emptyMessage;
+             container.appendChild(defaultMessage);
+        }
+    }
+
+
+    /**
+     * Affiche la vue détaillée des ressources d'un module.
+     */
+    function showRessourceDetails(moduleId) {
+        const moduleData = MODULES_DATA[moduleId];
+        const detailsView = document.getElementById('ressource-details-view');
+        const listView = document.getElementById('ressource-list-view');
+
+        if (!moduleData) {
+            alert("Ressources non trouvées pour ce module.");
+            return;
+        }
+        
+        // 1. Mettre à jour le titre
+        document.getElementById('ressource-module-title').textContent = moduleData.title;
+
+        // 2. Générer les boutons de ressources (avec les messages par défaut)
+        generateResourceButtons('td', moduleData.td, '', 'Aucun TD publié pour le moment.');
+        generateResourceButtons('tp', moduleData.tp, '', 'Aucun TP publié pour le moment.');
+        generateResourceButtons('pdf', moduleData.pdf, '', 'Aucun document de cours (PDF) disponible.');
+        generateResourceButtons('outils', moduleData.outils, '', 'Aucun outil spécifique recommandé pour ce module.');
+
+        // 3. Afficher la vue détaillée et masquer la liste
+        listView.classList.add('hidden');
+        detailsView.classList.remove('hidden');
+    }
+
+    /**
+     * Masque la vue détaillée des ressources et affiche la liste des modules.
+     */
+    function hideRessourceDetails() {
+        document.getElementById('ressource-details-view').classList.add('hidden');
+        document.getElementById('ressource-list-view').classList.remove('hidden');
+    }
+    
+    // Logique pour le filtre S5/S6 (Réutilisée et mise à jour pour le style)
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.ressource-semestre-filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const selectedSemestre = this.getAttribute('data-semestre');
+
+                // Mettre à jour l'état actif des boutons de semestre
+                document.querySelectorAll('.ressource-semestre-filter-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-gray-300', 'text-gray-700');
+                });
+                this.classList.remove('bg-gray-300', 'text-gray-700');
+                this.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-md');
+
+                // Afficher/Masquer les modules
+                document.querySelectorAll('.ressource-module-card').forEach(card => {
+                    const cardSemestre = card.getAttribute('data-semestre');
+                    if (selectedSemestre === 'all' || cardSemestre === selectedSemestre) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // Initialiser le filtre "Tous les Semestres" au chargement
+        const defaultFilter = document.querySelector('.ressource-semestre-filter-btn[data-semestre="all"]');
+        if (defaultFilter) {
+            defaultFilter.click();
+        }
+    });
 
 </script>
