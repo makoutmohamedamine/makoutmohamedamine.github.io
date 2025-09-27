@@ -170,11 +170,9 @@ Base de données
                                 <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 flex items-center justify-center">
                                     <img src="images.jpg" alt="">
                                 </div>
-                                <h3 class="text-xl font-semibold mb-3">Important!!</h3>
-                                <p class="text-gray-600 mb-4">Bonjour 
-J’aimerais bien vous informer que ❌ Pas de TD/TP❌ pour la semaine prochaine sauf les séances du cours.
-Bon week-end.</p>
-                                <span class="text-sm text-blue-600 font-medium">26 Septembre 2025</span>
+                                <h3 class="text-xl font-semibold mb-3">Partenariat entreprises</h3>
+                                <p class="text-gray-600 mb-4">Nouveaux partenariats avec les leaders technologiques pour les stages.</p>
+                                <span class="text-sm text-blue-600 font-medium">10 Janvier 2024</span>
                             </div>
                         </div>
                     </div>
@@ -183,10 +181,21 @@ Bon week-end.</p>
         </div>
 
         <!-- Page Filière -->
-<div id="filiere-page" class="page-content hidden">
+
+        <div id="filiere-page" class="page-content hidden">
     <section class="py-16">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
+                <div class="flex justify-center mb-8">
+        <button onclick="showPage('accueil')" 
+          class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2 shadow-md">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </button>
+      </div>
                 <h1 class="text-4xl font-bold text-gradient mb-6">
                     Filière Systèmes d’Information et Transformation Digitale (SITD)
                 </h1>
@@ -204,7 +213,8 @@ Bon week-end.</p>
                     acteurs majeurs de la <strong>transformation numérique</strong>, 
                     prêts à relever les défis technologiques du 21<sup>ème</sup> siècle.
                 </p>
-            </div>
+            </div>  
+            
 
             <!-- Présentation détaillée -->
             <div class="grid lg:grid-cols-2 gap-12 mb-16">
@@ -352,15 +362,11 @@ Bon week-end.</p>
     </section>
 </div>
 
-<!-- Bouton Retour à l'accueil (version bas de page) -->
-<div class="text-center mt-12">
-    <button onclick="showPage('accueil')" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Retour à l'accueil
-    </button>
-</div>
+
+
+
+
+
 
 
 <!-- Page Cours -->
@@ -373,7 +379,17 @@ Bon week-end.</p>
                 <h1 class="text-4xl font-bold text-gradient mb-4">📚 Catalogue des cours</h1>
                 <p class="text-xl text-gray-600">Découvrez les modules du semestre 5 et 6</p>
             </div>
-
+      <!-- Bouton Retour à l'accueil (haut centré) -->
+      <div class="flex justify-center mb-8">
+        <button onclick="showPage('accueil')" 
+          class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2 shadow-md">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </button>
+      </div>
             <!-- Filtres -->
             <div class="flex flex-wrap gap-4 justify-center mb-12">
                 <button class="filter-btn active bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors" data-filter="all">
@@ -577,14 +593,30 @@ Bon week-end.</p>
     </section>
 </div>
 
-        <!-- Page Ressources -->
-<div id="ressources-page" class="page-content hidden">
+  
+
+<!-- Page Ressources -->
+
+
+        <div id="ressources-page" class="page-content hidden">
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Espace Ressources Détaillées 📖</h1>
                 <p class="text-xl text-gray-600">Sélectionnez un module pour accéder à ses TD, TP, PDF et outils.</p>
             </div>
+                   <!-- Bouton Retour à l'accueil (haut centré) -->
+      <div class="flex justify-center mb-8">
+        <button onclick="showPage('accueil')" 
+          class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2 shadow-md">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </button>
+      </div>    
+
 
             <div id="ressource-list-view">
                 <div class="flex flex-wrap gap-4 justify-center mb-12 border-b pb-4">
@@ -697,6 +729,17 @@ Bon week-end.</p>
         <h1 class="text-4xl font-bold text-gradient mb-4">📅 Planning - Semestre 5</h1>
         <p class="text-xl text-gray-600">Emploi du temps regroupé (Gr1, Gr2, Gr3)</p>
       </div>
+       <!-- Bouton Retour à l'accueil (haut centré) -->
+      <div class="flex justify-center mb-8">
+        <button onclick="showPage('accueil')" 
+          class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2 shadow-md">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </button>
+      </div>    
 
       <!-- Calendrier -->
       <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
@@ -863,6 +906,16 @@ Bon week-end.</p>
         <div id="projets-page" class="page-content hidden">
             <section class="py-16">
                 <div class="container mx-auto px-6">
+                    <div class="flex justify-center mb-8">
+        <button onclick="showPage('accueil')" 
+          class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2 shadow-md">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </button>
+      </div>
                     <div class="text-center mb-12">
                         <h1 class="text-4xl font-bold text-gradient mb-4">🚀 Projets Étudiants</h1>
                         <p class="text-xl text-gray-600">Découvrez les réalisations exceptionnelles de nos étudiants</p>
@@ -931,6 +984,16 @@ Bon week-end.</p>
         <div id="contact-page" class="page-content hidden">
             <section class="py-16">
                 <div class="container mx-auto px-6">
+                    <div class="flex justify-center mb-8">
+        <button onclick="showPage('accueil')" 
+          class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2 shadow-md">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                 stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </button>
+      </div>
                     <div class="text-center mb-12">
                         <h1 class="text-4xl font-bold text-gradient mb-4">📞 Contact</h1>
                         <p class="text-xl text-gray-600">Nous sommes là pour vous accompagner</p>
@@ -1064,7 +1127,7 @@ Bon week-end.</p>
             const header = document.querySelector('header');
             
             // Pages où le header ne doit PAS s'afficher
-            const pagesSansHeader = ['cours', 'ressources', 'planning', 'contact'];
+            const pagesSansHeader = ['cours', 'ressources', 'planning', 'contact', 'filiere', 'projets'];
             
             if (pagesSansHeader.includes(pageName)) {
                 header.classList.add('hidden');
@@ -1688,17 +1751,9 @@ function showCoursPage() {
 
 
 
-<!-- Bouton Retour à l'accueil (version bas de page) -->
-<div class="text-center mt-12">
-    <button onclick="showPage('accueil')" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center gap-2">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Retour à l'accueil
-    </button>
-</div>
+
+
 </body>
 
 
 </html>
-
