@@ -23,89 +23,83 @@
         header.hidden {
             display: none !important;
         }
-        /* Menu mobile */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    width: 30px;
-    height: 21px;
-    position: relative;
-}
+        
+        /* === MENU MOBILE CORRIGÉ === */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 21px;
+            position: relative;
+            z-index: 1000;
+        }
 
-.menu-toggle span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: white;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-    position: absolute;
-}
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            position: absolute;
+        }
 
-.menu-toggle span:nth-child(1) { top: 0; }
-.menu-toggle span:nth-child(2) { top: 9px; }
-.menu-toggle span:nth-child(3) { top: 18px; }
+        .menu-toggle span:nth-child(1) { top: 0; }
+        .menu-toggle span:nth-child(2) { top: 9px; }
+        .menu-toggle span:nth-child(3) { top: 18px; }
 
-.mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #7c3aed 50%, #db2777 75%, #dc2626 100%);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    z-index: 99;
-}
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #7c3aed 50%, #db2777 75%, #dc2626 100%);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+            overflow-y: auto;
+        }
 
-.mobile-menu.active {
-    display: block;
-}
+        .mobile-menu.active {
+            display: block;
+        }
 
-.mobile-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.mobile-menu ul li {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+        .mobile-menu ul li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-.mobile-menu ul li a {
-    display: block;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-}
+        .mobile-menu ul li a {
+            display: block;
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-align: center;
+        }
 
-.mobile-menu ul li a:hover {
-    background-color: rgba(255,255,255,0.1);
-}
+        .mobile-menu ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-    
-    nav ul {
-        display: none;
-    }
-}
-/* FORCER l'affichage du menu mobile */
-.mobile-menu.active {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-}
-
-/* S'assurer que le menu est au-dessus de tout */
-.mobile-menu {
-    z-index: 9999 !important;
-}
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -151,13 +145,13 @@
         <!-- Menu Mobile -->
 <div class="mobile-menu">
     <ul>
-        <li><a href="#" onclick="showPage('accueil')">Accueil</a></li>
-        <li><a href="#" onclick="showPage('filiere')">Filière</a></li>
-        <li><a href="#" onclick="showPage('cours')">Cours</a></li>
-        <li><a href="#" onclick="showPage('ressources')">Ressources</a></li>
-        <li><a href="#" onclick="showPage('planning')">Planning</a></li>
-        <li><a href="#" onclick="showPage('projets')">Projets</a></li>
-        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        <li><a href="#" onclick="showPage('accueil'); closeMobileMenu();">Accueil</a></li>
+        <li><a href="#" onclick="showPage('filiere'); closeMobileMenu();">Filière</a></li>
+        <li><a href="#" onclick="showPage('cours'); closeMobileMenu();">Cours</a></li>
+        <li><a href="#" onclick="showPage('ressources'); closeMobileMenu();">Ressources</a></li>
+        <li><a href="#" onclick="showPage('planning'); closeMobileMenu();">Planning</a></li>
+        <li><a href="#" onclick="showPage('projets'); closeMobileMenu();">Projets</a></li>
+        <li><a href="#" onclick="showPage('contact'); closeMobileMenu();">Contact</a></li>
     </ul>
 </div>
 
@@ -1995,57 +1989,54 @@ function showCoursPage() {
             }
         });
 
-    
-    </script>
-        <!-- VOTRE JAVASCRIPT EXISTANT... -->
-
-    <!-- AJOUTEZ LE CODE DU MENU MOBILE ICI, JUSTE AVANT </body> -->
-    <script>
-    // Menu mobile
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-                
-                // Animation hamburger
-                const spans = this.querySelectorAll('span');
-                if (mobileMenu.classList.contains('active')) {
-                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-                } else {
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
-            });
+        // === FONCTION POUR FERMER LE MENU MOBILE ===
+        function closeMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
             
-            // Fermer le menu en cliquant sur un lien
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    // Réinitialiser l'animation du hamburger
-                    const spans = menuToggle.querySelectorAll('span');
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                });
-            });
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
+            
+            if (menuToggle) {
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
         }
-    });
+
+        // === SCRIPT DU MENU MOBILE CORRIGÉ ===
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('active');
+                    
+                    // Animation hamburger
+                    const spans = this.querySelectorAll('span');
+                    if (mobileMenu.classList.contains('active')) {
+                        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                    } else {
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+                
+                // Fermer le menu en cliquant à l'extérieur
+                document.addEventListener('click', function(e) {
+                    if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+        });
     </script>
-
 </body>
-</html>
-
-
-
-
-
-</body>
-
-
 </html>
