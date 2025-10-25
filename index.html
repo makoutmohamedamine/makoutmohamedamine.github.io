@@ -23,6 +23,77 @@
         header.hidden {
             display: none !important;
         }
+        /* Menu mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 21px;
+    position: relative;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    position: absolute;
+}
+
+.menu-toggle span:nth-child(1) { top: 0; }
+.menu-toggle span:nth-child(2) { top: 9px; }
+.menu-toggle span:nth-child(3) { top: 18px; }
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #7c3aed 50%, #db2777 75%, #dc2626 100%);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    z-index: 99;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    nav ul {
+        display: none;
+    }
+}
     </style>
 </head>
 <body class="bg-gray-50">
@@ -57,14 +128,26 @@
                         <a href="#" onclick="showPage('projets')" class="nav-link px-3 py-2 text-sm font-medium hover:text-blue-200 transition-colors">Projets</a>
                         <a href="#" onclick="showPage('contact')" class="nav-link px-3 py-2 text-sm font-medium hover:text-blue-200 transition-colors">Contact</a>
                     </div>
-                    <button class="md:hidden text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                   <div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
                 </div>
             </div>
         </nav>
+        <!-- Menu Mobile -->
+<div class="mobile-menu">
+    <ul>
+        <li><a href="#" onclick="showPage('accueil')">Accueil</a></li>
+        <li><a href="#" onclick="showPage('filiere')">Filière</a></li>
+        <li><a href="#" onclick="showPage('cours')">Cours</a></li>
+        <li><a href="#" onclick="showPage('ressources')">Ressources</a></li>
+        <li><a href="#" onclick="showPage('planning')">Planning</a></li>
+        <li><a href="#" onclick="showPage('projets')">Projets</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+</div>
 
         
         
@@ -1900,6 +1983,40 @@ function showCoursPage() {
                 defaultFilter.click();
             }
         });
+    // Menu mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            
+            // Animation hamburger
+            const spans = this.querySelectorAll('span');
+            if (mobileMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+    }
+});
+    
     </script>
 
 
