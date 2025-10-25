@@ -94,6 +94,18 @@
         display: none;
     }
 }
+/* FORCER l'affichage du menu mobile */
+.mobile-menu.active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* S'assurer que le menu est au-dessus de tout */
+.mobile-menu {
+    z-index: 9999 !important;
+}
     </style>
 </head>
 <body class="bg-gray-50">
