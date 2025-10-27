@@ -807,6 +807,24 @@ Bonne journée à tous !</p>
                         <h3 class="text-xl font-bold mb-4 text-yellow-700 flex items-center">🛠️ Outils & Liens</h3>
                         <div id="ressource-outils-buttons" class="flex flex-wrap gap-3">
                              </div>
+                             <!-- NOUVELLE SECTION COMPTE RENDU -->
+<div class="bg-white rounded-2xl shadow-2xl p-6 border-l-4 border-purple-600 mt-6">
+    <h3 class="text-xl font-bold mb-4 text-purple-700 flex items-center">📋 Compte Rendu</h3>
+    <div class="compte-rendu-section">
+        <!-- Bouton TP1 -->
+        <button class="tp-btn bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl mb-4">
+            📁 TP1
+        </button>
+        
+        <!-- Container des rapports (caché par défaut) -->
+        <div id="rapports-container" class="rapports-container hidden">
+            <h4 class="text-lg font-semibold mb-4 text-gray-800">Rapports TP1</h4>
+            <div class="rapports-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 max-h-96 overflow-y-auto p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <!-- Les rapports 1 à 100 seront générés ici dynamiquement -->
+            </div>
+        </div>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -2037,6 +2055,98 @@ function showCoursPage() {
                 });
             }
         });
+        // Fonction pour initialiser la section Compte Rendu
+function initCompteRendu() {
+    const tpBtn = document.querySelector('.tp-btn');
+    const rapportsContainer = document.getElementById('rapports-container');
+    const rapportsGrid = document.querySelector('.rapports-grid');
+
+    // Gérer le clic sur le bouton TP1
+    tpBtn.addEventListener('click', function() {
+        // Basculer l'affichage des rapports
+        rapportsContainer.classList.toggle('hidden');
+        
+        // Si on ouvre et que les rapports ne sont pas encore générés
+        if (!rapportsContainer.classList.contains('hidden') && rapportsGrid.children.length === 0) {
+            genererRapports();
+        }
+    });
+}
+
+// Fonction pour générer les rapports 1 à 100
+function genererRapports() {
+    const rapportsGrid = document.querySelector('.rapports-grid');
+    
+    for (let i = 1; i <= 100; i++) {
+        const rapportBtn = document.createElement('button');
+        rapportBtn.className = 'rapport-btn bg-white hover:bg-purple-600 hover:text-white text-gray-700 border border-gray-300 hover:border-purple-600 py-2 px-3 rounded-lg transition-all duration-200 transform hover:scale-105 text-sm font-medium';
+        rapportBtn.textContent = `Rapport ${i}`;
+        rapportBtn.onclick = () => ouvrirRapport(i);
+        rapportsGrid.appendChild(rapportBtn);
+    }
+}
+
+// Fonction pour ouvrir un rapport (à adapter avec vos liens)
+function ouvrirRapport(numero) {
+    // Exemple de structure de liens - à remplacer par vos vrais liens
+    const liensRapports = {
+        1: 'https://drive.google.com/file/d/lien-rapport-1/view',
+        2: 'https://drive.google.com/file/d/lien-rapport-2/view',
+        // ... ajoutez tous vos liens jusqu'à 100
+    };
+    
+    const lien = liensRapports[numero] || '#';
+    
+    if (lien !== '#') {
+        window.open(lien, '_blank');
+    } else {
+        alert(`Le rapport ${numero} n'est pas encore disponible`);
+    }
+}
+
+// Initialiser quand la page est chargée
+document.addEventListener('DOMContentLoaded', initCompteRendu);
+// Fonction pour initialiser la section Compte Rendu
+function initCompteRendu() {
+    const tpBtn = document.querySelector('.tp-btn');
+    const rapportsContainer = document.getElementById('rapports-container');
+    const rapportsGrid = document.querySelector('.rapports-grid');
+
+    tpBtn.addEventListener('click', function() {
+        rapportsContainer.classList.toggle('hidden');
+        
+        if (!rapportsContainer.classList.contains('hidden') && rapportsGrid.children.length === 0) {
+            genererRapports();
+        }
+    });
+}
+
+// Fonction pour générer les rapports 1 à 100
+function genererRapports() {
+    const rapportsGrid = document.querySelector('.rapports-grid');
+    
+    for (let i = 1; i <= 100; i++) {
+        const rapportBtn = document.createElement('button');
+        rapportBtn.className = 'rapport-btn bg-gradient-to-br from-white to-gray-50 hover:from-purple-600 hover:to-indigo-600 text-gray-800 hover:text-white border-2 border-gray-200 hover:border-purple-500 py-4 px-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl font-bold text-lg min-h-[75px] flex items-center justify-center';
+     rapportBtn.innerHTML = `
+    <span class="text-center leading-tight">
+        <span class="text-xl font-extrabold">${i}</span>
+    </span>
+`;
+        rapportBtn.onclick = () => ouvrirRapport(i);
+        rapportsGrid.appendChild(rapportBtn);
+    }
+}
+
+// Fonction pour ouvrir un rapport
+function ouvrirRapport(numero) {
+    // Remplacez par vos vrais liens Google Drive
+    const lien = `https://drive.google.com/file/d/rapport-${numero}/view`;
+    window.open(lien, '_blank');
+}
+
+// Initialiser quand la page est chargée
+document.addEventListener('DOMContentLoaded', initCompteRendu);
     </script>
 </body>
 </html>
