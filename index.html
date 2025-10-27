@@ -807,18 +807,7 @@ Bonne journée à tous !</p>
                         <h3 class="text-xl font-bold mb-4 text-yellow-700 flex items-center">🛠️ Outils & Liens</h3>
                         <div id="ressource-outils-buttons" class="flex flex-wrap gap-3">
                              </div>
-                    <!-- Section Compte Rendu -->
-<div class="bg-white rounded-2xl shadow-2xl p-6 border-l-4 border-purple-600 mt-6">
-    <h3>📋 Compte Rendu</h3>
-    <button class="tp-btn">📁 TP1 - Voir les Rapports</button>
-    <div id="rapports-container" class="hidden">
-        <h4>📄 Rapports TP1</h4>
-        <div class="rapports-grid">
-            <!-- Boutons 1 à 100 générés ici -->
-        </div>
-    </div>
-</div>
-                            </div>
+                    </div>
                 </div>
             </div>
 
@@ -2048,82 +2037,6 @@ function showCoursPage() {
                 });
             }
         });
-        // Fonction pour initialiser la section Compte Rendu
-function initCompteRendu() {
-    const tpBtn = document.querySelector('.tp-btn');
-    const rapportsContainer = document.getElementById('rapports-container');
-    const rapportsGrid = document.querySelector('.rapports-grid');
-
-    tpBtn.addEventListener('click', function() {
-        rapportsContainer.classList.toggle('hidden');
-        
-        if (!rapportsContainer.classList.contains('hidden') && rapportsGrid.children.length === 0) {
-            genererRapports();
-        }
-    });
-}
-
-// Fonction pour générer les rapports 1 à 100
-function genererRapports() {
-    const rapportsGrid = document.querySelector('.rapports-grid');
-    
-    for (let i = 1; i <= 100; i++) {
-        const rapportBtn = document.createElement('button');
-        rapportBtn.className = 'rapport-btn bg-gradient-to-br from-white to-gray-50 hover:from-purple-600 hover:to-indigo-600 text-gray-800 hover:text-white border-2 border-gray-200 hover:border-purple-500 py-4 px-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl font-bold text-lg min-h-[75px] flex items-center justify-center';
-        rapportBtn.innerHTML = `
-            <span class="text-center leading-tight">
-                <span class="text-xl font-extrabold">${i}</span>
-            </span>
-        `;
-        rapportBtn.onclick = () => ouvrirRapport(i);
-        rapportsGrid.appendChild(rapportBtn);
-    }
-}
-
-// Fonction pour ouvrir un rapport
-function ouvrirRapport(numero) {
-    // REMPLACEZ CES LIENS PAR VOS VRAIS LIENS GOOGLE DRIVE
-    const lien = `https://drive.google.com/file/d/rapport-${numero}/view`;
-    window.open(lien, '_blank');
-}
-
-// Initialiser quand la page est chargée
-document.addEventListener('DOMContentLoaded', initCompteRendu);
-// Ajouter cette structure à votre MODULES_DATA existant
-compteRendu: {
-    tp1: {
-        rapports: Array.from({length: 100}, (_, i) => ({
-            label: `Rapport ${i + 1}`,
-            link: `https://drive.google.com/file/d/rapport-${i + 1}/view` // Vos liens réels
-        }))
-    }
-}
-
-// Version alternative avec MODULES_DATA
-function genererRapportsDepuisData(moduleId) {
-    const rapportsGrid = document.querySelector('.rapports-grid');
-    const module = MODULES_DATA[moduleId];
-    
-    if (module && module.compteRendu && module.compteRendu.tp1) {
-        module.compteRendu.tp1.rapports.forEach((rapport, index) => {
-            const rapportBtn = document.createElement('button');
-            rapportBtn.className = 'rapport-btn bg-gradient-to-br from-white to-gray-50 hover:from-purple-600 hover:to-indigo-600 text-gray-800 hover:text-white border-2 border-gray-200 hover:border-purple-500 py-4 px-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl font-bold text-lg min-h-[75px] flex items-center justify-center';
-            rapportBtn.innerHTML = `
-                <span class="text-center leading-tight">
-                    <span class="text-xl font-extrabold">${index + 1}</span>
-                </span>
-            `;
-            rapportBtn.onclick = () => {
-                if (rapport.link && rapport.link !== '#') {
-                    window.open(rapport.link, '_blank');
-                } else {
-                    alert(`Le rapport ${index + 1} n'est pas encore disponible`);
-                }
-            };
-            rapportsGrid.appendChild(rapportBtn);
-        });
-    }
-}
     </script>
 </body>
 </html>
