@@ -2191,14 +2191,57 @@ function genererRapports() {
 function ouvrirRapport(numero) {
     // Tableau avec vos 50 liens complets Google Drive
     const liensRapports = [
-        "https://drive.google.com/file/d/1lkKjqktp7eL2keg3Kwi8MCAqtbPoBoXI/view?usp=sharing", // Rapport 1
-        "https://drive.google.com/file/d/19WqBVjk81V4Y8oa-OwiMWzyF_Zd0f79z/view?usp=sharing", // Rapport 2
-        "https://drive.google.com/file/d/1E8U0woLBC8r4LxTx-LM283rrBMH7x8Gn/view?usp=sharing", // Rapport 3
-        "https://drive.google.com/file/d/1r3guTaqoSvFrZTBpB4bIFfGe1c7VxWHI/view?usp=sharing", // Rapport 4
-        "https://drive.google.com/file/d/11zR66hWqnBESaMQLhO91AAOgC_9HvsKv/view?usp=sharing", // Rapport 5
-        // ... ajoutez vos 45 autres liens ici
-        "https://drive.google.com/file/d/1hPpdMKRFOCCxXA05NPHAVKBe5Bk9wRum/view?usp=sharing"  // Rapport 50
-    ];
+       "https://drive.google.com/file/d/1lkKjqktp7eL2keg3Kwi8MCAqtbPoBoXI/view?usp=sharing", // Rapport 1
+    "https://drive.google.com/file/d/19WqBVjk81V4Y8oa-OwiMWzyF_Zd0f79z/view?usp=sharing", // Rapport 2
+    "https://drive.google.com/file/d/1E8U0woLBC8r4LxTx-LM283rrBMH7x8Gn/view?usp=sharing", // Rapport 3
+    "https://drive.google.com/file/d/1r3guTaqoSvFrZTBpB4bIFfGe1c7VxWHI/view?usp=sharing", // Rapport 4
+    "https://drive.google.com/file/d/11zR66hWqnBESaMQLhO91AAOgC_9HvsKv/view?usp=sharing", // Rapport 5
+    "https://drive.google.com/file/d/1hPpdMKRFOCCxXA05NPHAVKBe5Bk9wRum/view?usp=sharing", // Rapport 6
+    "https://drive.google.com/file/d/PLACEHOLDER1/view?usp=sharing", // Rapport 7
+    "https://drive.google.com/file/d/PLACEHOLDER2/view?usp=sharing", // Rapport 8
+    "https://drive.google.com/file/d/PLACEHOLDER3/view?usp=sharing", // Rapport 9
+    "https://drive.google.com/file/d/PLACEHOLDER4/view?usp=sharing", // Rapport 10
+    "https://drive.google.com/file/d/PLACEHOLDER5/view?usp=sharing", // Rapport 11
+    "https://drive.google.com/file/d/PLACEHOLDER6/view?usp=sharing", // Rapport 12
+    "https://drive.google.com/file/d/PLACEHOLDER7/view?usp=sharing", // Rapport 13
+    "https://drive.google.com/file/d/PLACEHOLDER8/view?usp=sharing", // Rapport 14
+    "https://drive.google.com/file/d/PLACEHOLDER9/view?usp=sharing", // Rapport 15
+    "https://drive.google.com/file/d/PLACEHOLDER10/view?usp=sharing", // Rapport 16
+    "https://drive.google.com/file/d/PLACEHOLDER11/view?usp=sharing", // Rapport 17
+    "https://drive.google.com/file/d/PLACEHOLDER12/view?usp=sharing", // Rapport 18
+    "https://drive.google.com/file/d/PLACEHOLDER13/view?usp=sharing", // Rapport 19
+    "https://drive.google.com/file/d/PLACEHOLDER14/view?usp=sharing", // Rapport 20
+    "https://drive.google.com/file/d/PLACEHOLDER15/view?usp=sharing", // Rapport 21
+    "https://drive.google.com/file/d/PLACEHOLDER16/view?usp=sharing", // Rapport 22
+    "https://drive.google.com/file/d/PLACEHOLDER17/view?usp=sharing", // Rapport 23
+    "https://drive.google.com/file/d/PLACEHOLDER18/view?usp=sharing", // Rapport 24
+    "https://drive.google.com/file/d/PLACEHOLDER19/view?usp=sharing", // Rapport 25
+    "https://drive.google.com/file/d/PLACEHOLDER20/view?usp=sharing", // Rapport 26
+    "https://drive.google.com/file/d/PLACEHOLDER21/view?usp=sharing", // Rapport 27
+    "https://drive.google.com/file/d/PLACEHOLDER22/view?usp=sharing", // Rapport 28
+    "https://drive.google.com/file/d/PLACEHOLDER23/view?usp=sharing", // Rapport 29
+    "https://drive.google.com/file/d/PLACEHOLDER24/view?usp=sharing", // Rapport 30
+    "https://drive.google.com/file/d/PLACEHOLDER25/view?usp=sharing", // Rapport 31
+    "https://drive.google.com/file/d/PLACEHOLDER26/view?usp=sharing", // Rapport 32
+    "https://drive.google.com/file/d/PLACEHOLDER27/view?usp=sharing", // Rapport 33
+    "https://drive.google.com/file/d/PLACEHOLDER28/view?usp=sharing", // Rapport 34
+    "https://drive.google.com/file/d/PLACEHOLDER29/view?usp=sharing", // Rapport 35
+    "https://drive.google.com/file/d/PLACEHOLDER30/view?usp=sharing", // Rapport 36
+    "https://drive.google.com/file/d/PLACEHOLDER31/view?usp=sharing", // Rapport 37
+    "https://drive.google.com/file/d/PLACEHOLDER32/view?usp=sharing", // Rapport 38
+    "https://drive.google.com/file/d/PLACEHOLDER33/view?usp=sharing", // Rapport 39
+    "https://drive.google.com/file/d/PLACEHOLDER34/view?usp=sharing", // Rapport 40
+    "https://drive.google.com/file/d/PLACEHOLDER35/view?usp=sharing", // Rapport 41
+    "https://drive.google.com/file/d/PLACEHOLDER36/view?usp=sharing", // Rapport 42
+    "https://drive.google.com/file/d/PLACEHOLDER37/view?usp=sharing", // Rapport 43
+    "https://drive.google.com/file/d/PLACEHOLDER38/view?usp=sharing", // Rapport 44
+    "https://drive.google.com/file/d/PLACEHOLDER39/view?usp=sharing", // Rapport 45
+    "https://drive.google.com/file/d/PLACEHOLDER40/view?usp=sharing", // Rapport 46
+    "https://drive.google.com/file/d/PLACEHOLDER41/view?usp=sharing", // Rapport 47
+    "https://drive.google.com/file/d/PLACEHOLDER42/view?usp=sharing", // Rapport 48
+    "https://drive.google.com/file/d/PLACEHOLDER43/view?usp=sharing", // Rapport 49
+    "https://drive.google.com/file/d/PLACEHOLDER44/view?usp=sharing"  // Rapport 50
+];
     
     // Vérifier si le numéro est valide
     if (numero >= 1 && numero <= liensRapports.length) {
