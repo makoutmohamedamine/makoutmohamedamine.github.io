@@ -1726,50 +1726,65 @@ function showCoursPage() {
             observer.observe(el);
         });
 
-        // Données des ressources
-        const MODULES_DATA = {
-            'programmation-objet': {
-                title: 'Programmation Orientée Objet',
-                td: [
-                    { label: 'TD 1: Introduction', link: 'https://drive.google.com/file/d/18j09pIQJo9EcDddWEyFtUmBPICGwImCS/view?usp=sharing' },
-                    { label: 'TD 2: Tableau - liste - gestion', link: 'https://drive.google.com/file/d/1FYf1x6KyuMJ9cMB15_YME1wEwZ927EVT/view?usp=sharing' },
-                    { label: 'TD 3: Encapsulation, Abstraction et Constructeurs', link: 'https://drive.google.com/file/d/1HCg7wdxSJ39-aEtdW0h8FE4AHppVLm1m/view?usp=sharing' }
-                ],
-                tp: [
-                    { label: 'TP 1: Base Java', link: 'https://drive.google.com/file/d/1fa62x65T_nkQ9kvLbV_aqxu3fmv2eKb3/view?usp=sharing' },
-                    { label: 'TP 2: Design Patterns', link: 'LIEN_DRIVE_POO_TP2' },
-                    { label: 'TP 3: GUI', link: 'LIEN_DRIVE_POO_TP3' }
-                ],
-                pdf: [
-                    { label: 'Cours Complet (PDF)', link: 'https://drive.google.com/file/d/15Q9rpLHhMlV5XPVYcI2YJc824d1YyrYO/view?usp=sharing' },
-                    { label: 'Slides du Prof', link: 'https://drive.google.com/file/d/15Q9rpLHhMlV5XPVYcI2YJc824d1YyrYO/view?usp=sharing' }
-                ],
-                outils: [
-                    { label: 'IntelliJ IDEA', link: 'https://www.jetbrains.com/idea/download/?section=windows' },
-                    { label: 'JDK (Java)', link: 'https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html' }
-                ]
-            },
-            'developpement-web': {
-    title: 'Développement Web',
-    td: [
-        { label: 'TD 1: HTML', link: 'https://drive.google.com/file/d/1J74NtE8Ifpl2bgf5UYJpCYtaHWLeMW_O/view?usp=sharing' },
-        { label: 'TD 2: CSS', link: 'https://drive.google.com/file/d/1J60X4foehCDm1SiSrhB94jNhIRsrip0l/view?usp=sharing' },
-        { label: 'TD 3: HTML + CSS', link: 'https://drive.google.com/file/d/16vqEfg9dMmKxm-g3iDCKSrHj-jHd6vwR/view?usp=sharing' }
-    ],
-    tp: [
-        { label: 'TP 1: Formulaires et Validation', link: 'LIEN_DRIVE_WEB_TP1' },
-        { label: 'TP 2: Connexion BDD (PDO)', link: 'LIEN_DRIVE_WEB_TP2' }
-    ],
-    pdf: [
-        { label: 'Manuel PHP', link: 'LIEN_DRIVE_WEB_PDF_PHP' }
-    ],
-    outils: [
-        { label: 'VS Code', link: 'https://code.visualstudio.com/' },
-        { label: 'XAMPP', link: 'https://www.apachefriends.org/fr/index.html' }
-    ]
-},
-
-            'base-donnees': {
+   // Données des ressources
+const MODULES_DATA = {
+    'programmation-objet': {
+        title: 'Programmation Orientée Objet',
+        td: [
+            { label: 'TD 1: Introduction', link: 'https://drive.google.com/file/d/18j09pIQJo9EcDddWEyFtUmBPICGwImCS/view?usp=sharing' },
+            { label: 'TD 2: Tableau - liste - gestion', link: 'https://drive.google.com/file/d/1FYf1x6KyuMJ9cMB15_YME1wEwZ927EVT/view?usp=sharing' },
+            { label: 'TD 3: Encapsulation, Abstraction et Constructeurs', link: 'https://drive.google.com/file/d/1HCg7wdxSJ39-aEtdW0h8FE4AHppVLm1m/view?usp=sharing' }
+        ],
+        tp: [
+            { label: 'TP 1: Base Java', link: 'https://drive.google.com/file/d/1fa62x65T_nkQ9kvLbV_aqxu3fmv2eKb3/view?usp=sharing' },
+            { label: 'TP 2: Design Patterns', link: 'LIEN_DRIVE_POO_TP2' },
+            { label: 'TP 3: GUI', link: 'LIEN_DRIVE_POO_TP3' }
+        ],
+        pdf: [
+            { label: 'Cours Complet (PDF)', link: 'https://drive.google.com/file/d/15Q9rpLHhMlV5XPVYcI2YJc824d1YyrYO/view?usp=sharing' },
+            { label: 'Slides du Prof', link: 'https://drive.google.com/file/d/15Q9rpLHhMlV5XPVYcI2YJc824d1YyrYO/view?usp=sharing' }
+        ],
+        outils: [
+            { label: 'IntelliJ IDEA', link: 'https://www.jetbrains.com/idea/download/?section=windows' },
+            { label: 'JDK (Java)', link: 'https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html' }
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-poo-${i + 1}/view`
+                }))
+            }
+        }
+    },
+    'developpement-web': {
+        title: 'Développement Web',
+        td: [
+            { label: 'TD 1: HTML', link: 'https://drive.google.com/file/d/1J74NtE8Ifpl2bgf5UYJpCYtaHWLeMW_O/view?usp=sharing' },
+            { label: 'TD 2: CSS', link: 'https://drive.google.com/file/d/1J60X4foehCDm1SiSrhB94jNhIRsrip0l/view?usp=sharing' },
+            { label: 'TD 3: HTML + CSS', link: 'https://drive.google.com/file/d/16vqEfg9dMmKxm-g3iDCKSrHj-jHd6vwR/view?usp=sharing' }
+        ],
+        tp: [
+            { label: 'TP 1: Formulaires et Validation', link: 'LIEN_DRIVE_WEB_TP1' },
+            { label: 'TP 2: Connexion BDD (PDO)', link: 'LIEN_DRIVE_WEB_TP2' }
+        ],
+        pdf: [
+            { label: 'Manuel PHP', link: 'LIEN_DRIVE_WEB_PDF_PHP' }
+        ],
+        outils: [
+            { label: 'VS Code', link: 'https://code.visualstudio.com/' },
+            { label: 'XAMPP', link: 'https://www.apachefriends.org/fr/index.html' }
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-web-${i + 1}/view`
+                }))
+            }
+        }
+    },
+    'base-donnees': {
         title: 'Base de données',
         td: [
             { label: 'TD 1: Modèle Relationnel', link: 'https://drive.google.com/file/d/1AbCdEfGhIjKlMnOpQrStUvWxYzAbCdEf/view?usp=drive_link' },
@@ -1789,7 +1804,15 @@ function showCoursPage() {
             { label: 'MySQL Workbench', link: 'https://www.mysql.com/products/workbench/' },
             { label: 'MongoDB Compass', link: 'https://www.mongodb.com/products/compass' },
             { label: 'phpMyAdmin', link: 'https://www.phpmyadmin.net/' }
-        ]
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-bd-${i + 1}/view`
+                }))
+            }
+        }
     },
     'e-business': {
         title: 'E-business, E-commerce',
@@ -1810,7 +1833,15 @@ function showCoursPage() {
             { label: 'Google Analytics', link: 'https://analytics.google.com/' },
             { label: 'Shopify', link: 'https://www.shopify.com/' },
             { label: 'WooCommerce', link: 'https://woocommerce.com/' }
-        ]
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-ebusiness-${i + 1}/view`
+                }))
+            }
+        }
     },
     'systeme-information': {
         title: 'Système d\'information',
@@ -1831,7 +1862,15 @@ function showCoursPage() {
             { label: 'Lucidchart', link: 'https://www.lucidchart.com/' },
             { label: 'Draw.io', link: 'https://app.diagrams.net/' },
             { label: 'ERPNext', link: 'https://erpnext.com/' }
-        ]
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-si-${i + 1}/view`
+                }))
+            }
+        }
     },
     'marketing-digital': {
         title: 'Marketing Digital',
@@ -1853,7 +1892,15 @@ function showCoursPage() {
             { label: 'Google Ads', link: 'https://ads.google.com/' },
             { label: 'SEMrush', link: 'https://www.semrush.com/' },
             { label: 'Meta Business Suite', link: 'https://business.facebook.com/' }
-        ]
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-marketing-${i + 1}/view`
+                }))
+            }
+        }
     },
     'conduite-projet': {
         title: 'Conduite de projet digital',
@@ -1874,7 +1921,15 @@ function showCoursPage() {
             { label: 'Jira', link: 'https://www.atlassian.com/software/jira' },
             { label: 'Trello', link: 'https://trello.com/' },
             { label: 'Microsoft Project', link: 'https://www.microsoft.com/en-us/microsoft-365/project/project-management-software' }
-        ]
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-projet-${i + 1}/view`
+                }))
+            }
+        }
     },
     'business-intelligence': {
         title: 'Outils d\'aide à la décision et BI',
@@ -1895,7 +1950,15 @@ function showCoursPage() {
             { label: 'Power BI', link: 'https://powerbi.microsoft.com/' },
             { label: 'Tableau', link: 'https://www.tableau.com/' },
             { label: 'Qlik Sense', link: 'https://www.qlik.com/us/products/qlik-sense' }
-        ]
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-bi-${i + 1}/view`
+                }))
+            }
+        }
     },
     'developpement-mobile': {
         title: 'Développement Mobile et IoT',
@@ -1917,10 +1980,17 @@ function showCoursPage() {
             { label: 'Android Studio', link: 'https://developer.android.com/studio' },
             { label: 'Xcode', link: 'https://developer.apple.com/xcode/' },
             { label: 'React Native', link: 'https://reactnative.dev/' }
-        ]
+        ],
+        compteRendu: {
+            tp1: {
+                rapports: Array.from({length: 100}, (_, i) => ({
+                    label: `Rapport ${i + 1}`,
+                    link: `https://drive.google.com/file/d/rapport-mobile-${i + 1}/view`
+                }))
+            }
+        }
     }
-};
-       
+};    
 
         function createResourceButton(resource, styleClasses) {
             const button = document.createElement('a');
@@ -2057,106 +2127,7 @@ function showCoursPage() {
             }
         });
         // Fonction pour initialiser la section Compte Rendu
-function initCompteRendu() {
-    const tpBtn = document.querySelector('.tp-btn');
-    const rapportsContainer = document.getElementById('rapports-container');
-    const rapportsGrid = document.querySelector('.rapports-grid');
-
-    // Gérer le clic sur le bouton TP1
-    tpBtn.addEventListener('click', function() {
-        // Basculer l'affichage des rapports
-        rapportsContainer.classList.toggle('hidden');
-        
-        // Si on ouvre et que les rapports ne sont pas encore générés
-        if (!rapportsContainer.classList.contains('hidden') && rapportsGrid.children.length === 0) {
-            genererRapports();
-        }
-    });
-}
-
-// Fonction pour générer les rapports 1 à 100
-function genererRapports() {
-    const rapportsGrid = document.querySelector('.rapports-grid');
-    
-    for (let i = 1; i <= 100; i++) {
-        const rapportBtn = document.createElement('button');
-        rapportBtn.className = 'rapport-btn bg-white hover:bg-purple-600 hover:text-white text-gray-700 border border-gray-300 hover:border-purple-600 py-2 px-3 rounded-lg transition-all duration-200 transform hover:scale-105 text-sm font-medium';
-        rapportBtn.textContent = `Rapport ${i}`;
-        rapportBtn.onclick = () => ouvrirRapport(i);
-        rapportsGrid.appendChild(rapportBtn);
-    }
-}
-
-// Fonction pour ouvrir un rapport (à adapter avec vos liens)
-function ouvrirRapport(numero) {
-    // Exemple de structure de liens - à remplacer par vos vrais liens
-    const liensRapports = {
-        1: 'https://drive.google.com/file/d/1fa62x65T_nkQ9kvLbV_aqxu3fmv2eKb3/view',
-        2: 'https://drive.google.com/file/d/1r3guTaqoSvFrZTBpB4bIFfGe1c7VxWHI/view?usp=sharing',
-        3: 'https://drive.google.com/file/d/1lkKjqktp7eL2keg3Kwi8MCAqtbPoBoXI/view?usp=sharing',
-        4: 'https://drive.google.com/file/d/1hPpdMKRFOCCxXA05NPHAVKBe5Bk9wRum/view?usp=sharing',
-        5: 'https://drive.google.com/file/d/1EXAMPLE2VIEW/view?usp=sharing',
-        6: 'https://drive.google.com/file/d/1EXAMPLE3VIEW/view?usp=sharing',
-        7: 'https://drive.google.com/file/d/1EXAMPLE4VIEW/view?usp=sharing',
-        8: 'https://drive.google.com/file/d/1EXAMPLE5VIEW/view?usp=sharing',
-        9: 'https://drive.google.com/file/d/1EXAMPLE6VIEW/view?usp=sharing',
-        10: 'https://drive.google.com/file/d/1EXAMPLE7VIEW/view?usp=sharing',
-        11: 'https://drive.google.com/file/d/1EXAMPLE8VIEW/view?usp=sharing',
-        12: 'https://drive.google.com/file/d/1EXAMPLE9VIEW/view?usp=sharing',
-        13: 'https://drive.google.com/file/d/1EXAMPLE10VIEW/view?usp=sharing',
-        14: 'https://drive.google.com/file/d/1EXAMPLE11VIEW/view?usp=sharing',
-        15: 'https://drive.google.com/file/d/1EXAMPLE12VIEW/view?usp=sharing',
-        16: 'https://drive.google.com/file/d/1EXAMPLE13VIEW/view?usp=sharing',
-        17: 'https://drive.google.com/file/d/1EXAMPLE14VIEW/view?usp=sharing',
-        18: 'https://drive.google.com/file/d/1EXAMPLE15VIEW/view?usp=sharing',
-        19: 'https://drive.google.com/file/d/1EXAMPLE16VIEW/view?usp=sharing',
-        20: 'https://drive.google.com/file/d/1EXAMPLE17VIEW/view?usp=sharing',
-        21: 'https://drive.google.com/file/d/1EXAMPLE18VIEW/view?usp=sharing',
-        22: 'https://drive.google.com/file/d/1EXAMPLE19VIEW/view?usp=sharing',
-        23: 'https://drive.google.com/file/d/1EXAMPLE20VIEW/view?usp=sharing',
-        24: 'https://drive.google.com/file/d/1EXAMPLE21VIEW/view?usp=sharing',
-        25: 'https://drive.google.com/file/d/1EXAMPLE22VIEW/view?usp=sharing',
-        26: 'https://drive.google.com/file/d/1EXAMPLE23VIEW/view?usp=sharing',
-        27: 'https://drive.google.com/file/d/1EXAMPLE24VIEW/view?usp=sharing',
-        28: 'https://drive.google.com/file/d/1EXAMPLE25VIEW/view?usp=sharing',
-        29: 'https://drive.google.com/file/d/1EXAMPLE26VIEW/view?usp=sharing',
-        30: 'https://drive.google.com/file/d/1EXAMPLE27VIEW/view?usp=sharing',
-        31: 'https://drive.google.com/file/d/1EXAMPLE28VIEW/view?usp=sharing',
-        32: 'https://drive.google.com/file/d/1EXAMPLE29VIEW/view?usp=sharing',
-        33: 'https://drive.google.com/file/d/1EXAMPLE30VIEW/view?usp=sharing',
-        34: 'https://drive.google.com/file/d/1EXAMPLE31VIEW/view?usp=sharing',
-        35: 'https://drive.google.com/file/d/1EXAMPLE32VIEW/view?usp=sharing',
-        36: 'https://drive.google.com/file/d/1EXAMPLE33VIEW/view?usp=sharing',
-        37: 'https://drive.google.com/file/d/1EXAMPLE34VIEW/view?usp=sharing',
-        38: 'https://drive.google.com/file/d/1EXAMPLE35VIEW/view?usp=sharing',
-        39: 'https://drive.google.com/file/d/1EXAMPLE36VIEW/view?usp=sharing',
-        40: 'https://drive.google.com/file/d/1EXAMPLE37VIEW/view?usp=sharing',
-        41: 'https://drive.google.com/file/d/1EXAMPLE38VIEW/view?usp=sharing',
-        42: 'https://drive.google.com/file/d/1EXAMPLE39VIEW/view?usp=sharing',
-        43: 'https://drive.google.com/file/d/1EXAMPLE40VIEW/view?usp=sharing',
-        44: 'https://drive.google.com/file/d/1EXAMPLE41VIEW/view?usp=sharing',
-        45: 'https://drive.google.com/file/d/1EXAMPLE42VIEW/view?usp=sharing',
-        46: 'https://drive.google.com/file/d/1EXAMPLE43VIEW/view?usp=sharing',
-        47: 'https://drive.google.com/file/d/1EXAMPLE44VIEW/view?usp=sharing',
-        48: 'https://drive.google.com/file/d/1EXAMPLE45VIEW/view?usp=sharing',
-        49: 'https://drive.google.com/file/d/1EXAMPLE46VIEW/view?usp=sharing',
-        50: 'https://drive.google.com/file/d/1EXAMPLE47VIEW/view?usp=sharing',
-        // ... ajoutez tous vos liens jusqu'à 100
-    };
-    
-    const lien = liensRapports[numero] || '#';
-    
-    if (lien !== '#') {
-        window.open(lien, '_blank');
-    } else {
-        alert(`Le rapport ${numero} n'est pas encore disponible`);
-    }
-}
-
-// Initialiser quand la page est chargée
-document.addEventListener('DOMContentLoaded', initCompteRendu);
-// Fonction pour initialiser la section Compte Rendu
-function initCompteRendu() {
+function initCompteRendu(moduleId) {
     const tpBtn = document.querySelector('.tp-btn');
     const rapportsContainer = document.getElementById('rapports-container');
     const rapportsGrid = document.querySelector('.rapports-grid');
@@ -2165,94 +2136,50 @@ function initCompteRendu() {
         rapportsContainer.classList.toggle('hidden');
         
         if (!rapportsContainer.classList.contains('hidden') && rapportsGrid.children.length === 0) {
-            genererRapports();
+            genererRapports(moduleId);
         }
     });
 }
 
 // Fonction pour générer les rapports 1 à 100
-function genererRapports() {
+function genererRapports(moduleId) {
     const rapportsGrid = document.querySelector('.rapports-grid');
+    const module = MODULES_DATA[moduleId];
     
-    for (let i = 1; i <= 100; i++) {
-        const rapportBtn = document.createElement('button');
-        rapportBtn.className = 'rapport-btn bg-gradient-to-br from-white to-gray-50 hover:from-purple-600 hover:to-indigo-600 text-gray-800 hover:text-white border-2 border-gray-200 hover:border-purple-500 py-4 px-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl font-bold text-lg min-h-[75px] flex items-center justify-center';
-     rapportBtn.innerHTML = `
-    <span class="text-center leading-tight">
-        <span class="text-xl font-extrabold">${i}</span>
-    </span>
-`;
-        rapportBtn.onclick = () => ouvrirRapport(i);
-        rapportsGrid.appendChild(rapportBtn);
+    rapportsGrid.innerHTML = '';
+    
+    if (module && module.compteRendu && module.compteRendu.tp1) {
+        module.compteRendu.tp1.rapports.forEach((rapport, index) => {
+            const rapportBtn = document.createElement('button');
+            rapportBtn.className = 'rapport-btn bg-gradient-to-br from-white to-gray-50 hover:from-purple-600 hover:to-indigo-600 text-gray-800 hover:text-white border-2 border-gray-200 hover:border-purple-500 py-4 px-4 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-xl font-bold text-lg min-h-[75px] flex items-center justify-center';
+            rapportBtn.innerHTML = `
+                <span class="text-center leading-tight">
+                    <span class="text-xl font-extrabold">${index + 1}</span>
+                </span>
+            `;
+            rapportBtn.onclick = () => ouvrirRapport(moduleId, index + 1);
+            rapportsGrid.appendChild(rapportBtn);
+        });
     }
 }
 
 // Fonction pour ouvrir un rapport
-function ouvrirRapport(numero) {
-    // Tableau avec vos 50 liens complets Google Drive
-    const liensRapports = [
-       "https://drive.google.com/file/d/1lkKjqktp7eL2keg3Kwi8MCAqtbPoBoXI/view?usp=sharing", // Rapport 1
-    "https://drive.google.com/file/d/19WqBVjk81V4Y8oa-OwiMWzyF_Zd0f79z/view?usp=sharing", // Rapport 2
-    "https://drive.google.com/file/d/1E8U0woLBC8r4LxTx-LM283rrBMH7x8Gn/view?usp=sharing", // Rapport 3
-    "https://drive.google.com/file/d/1r3guTaqoSvFrZTBpB4bIFfGe1c7VxWHI/view?usp=sharing", // Rapport 4
-    "https://drive.google.com/file/d/11zR66hWqnBESaMQLhO91AAOgC_9HvsKv/view?usp=sharing", // Rapport 5
-    "https://drive.google.com/file/d/1hPpdMKRFOCCxXA05NPHAVKBe5Bk9wRum/view?usp=sharing", // Rapport 6
-    "https://drive.google.com/file/d/1iKziExNShN4ajLLDvZdVTWk-I8N-paLY/view?usp=sharing", // Rapport 7
-    "https://drive.google.com/file/d/19823pWgypBu12o7h-Z0WhpmnxXsOAcb6/view?usp=sharing", // Rapport 8
-    "https://drive.google.com/file/d/PLACEHOLDER3/view?usp=sharing", // Rapport 9
-    "https://drive.google.com/file/d/PLACEHOLDER4/view?usp=sharing", // Rapport 10
-    "https://drive.google.com/file/d/PLACEHOLDER5/view?usp=sharing", // Rapport 11
-    "https://drive.google.com/file/d/PLACEHOLDER6/view?usp=sharing", // Rapport 12
-    "https://drive.google.com/file/d/PLACEHOLDER7/view?usp=sharing", // Rapport 13
-    "https://drive.google.com/file/d/PLACEHOLDER8/view?usp=sharing", // Rapport 14
-    "https://drive.google.com/file/d/PLACEHOLDER9/view?usp=sharing", // Rapport 15
-    "https://drive.google.com/file/d/PLACEHOLDER10/view?usp=sharing", // Rapport 16
-    "https://drive.google.com/file/d/PLACEHOLDER11/view?usp=sharing", // Rapport 17
-    "https://drive.google.com/file/d/PLACEHOLDER12/view?usp=sharing", // Rapport 18
-    "https://drive.google.com/file/d/PLACEHOLDER13/view?usp=sharing", // Rapport 19
-    "https://drive.google.com/file/d/PLACEHOLDER14/view?usp=sharing", // Rapport 20
-    "https://drive.google.com/file/d/PLACEHOLDER15/view?usp=sharing", // Rapport 21
-    "https://drive.google.com/file/d/PLACEHOLDER16/view?usp=sharing", // Rapport 22
-    "https://drive.google.com/file/d/PLACEHOLDER17/view?usp=sharing", // Rapport 23
-    "https://drive.google.com/file/d/PLACEHOLDER18/view?usp=sharing", // Rapport 24
-    "https://drive.google.com/file/d/PLACEHOLDER19/view?usp=sharing", // Rapport 25
-    "https://drive.google.com/file/d/PLACEHOLDER20/view?usp=sharing", // Rapport 26
-    "https://drive.google.com/file/d/PLACEHOLDER21/view?usp=sharing", // Rapport 27
-    "https://drive.google.com/file/d/PLACEHOLDER22/view?usp=sharing", // Rapport 28
-    "https://drive.google.com/file/d/PLACEHOLDER23/view?usp=sharing", // Rapport 29
-    "https://drive.google.com/file/d/PLACEHOLDER24/view?usp=sharing", // Rapport 30
-    "https://drive.google.com/file/d/PLACEHOLDER25/view?usp=sharing", // Rapport 31
-    "https://drive.google.com/file/d/PLACEHOLDER26/view?usp=sharing", // Rapport 32
-    "https://drive.google.com/file/d/PLACEHOLDER27/view?usp=sharing", // Rapport 33
-    "https://drive.google.com/file/d/PLACEHOLDER28/view?usp=sharing", // Rapport 34
-    "https://drive.google.com/file/d/PLACEHOLDER29/view?usp=sharing", // Rapport 35
-    "https://drive.google.com/file/d/PLACEHOLDER30/view?usp=sharing", // Rapport 36
-    "https://drive.google.com/file/d/PLACEHOLDER31/view?usp=sharing", // Rapport 37
-    "https://drive.google.com/file/d/PLACEHOLDER32/view?usp=sharing", // Rapport 38
-    "https://drive.google.com/file/d/PLACEHOLDER33/view?usp=sharing", // Rapport 39
-    "https://drive.google.com/file/d/PLACEHOLDER34/view?usp=sharing", // Rapport 40
-    "https://drive.google.com/file/d/PLACEHOLDER35/view?usp=sharing", // Rapport 41
-    "https://drive.google.com/file/d/PLACEHOLDER36/view?usp=sharing", // Rapport 42
-    "https://drive.google.com/file/d/PLACEHOLDER37/view?usp=sharing", // Rapport 43
-    "https://drive.google.com/file/d/PLACEHOLDER38/view?usp=sharing", // Rapport 44
-    "https://drive.google.com/file/d/PLACEHOLDER39/view?usp=sharing", // Rapport 45
-    "https://drive.google.com/file/d/PLACEHOLDER40/view?usp=sharing", // Rapport 46
-    "https://drive.google.com/file/d/PLACEHOLDER41/view?usp=sharing", // Rapport 47
-    "https://drive.google.com/file/d/PLACEHOLDER42/view?usp=sharing", // Rapport 48
-    "https://drive.google.com/file/d/PLACEHOLDER43/view?usp=sharing", // Rapport 49
-    "https://drive.google.com/file/d/PLACEHOLDER44/view?usp=sharing"  // Rapport 50
-];
+function ouvrirRapport(moduleId, numero) {
+    const module = MODULES_DATA[moduleId];
     
-    // Vérifier si le numéro est valide
-    if (numero >= 1 && numero <= liensRapports.length) {
-        window.open(liensRapports[numero - 1], '_blank');
-    } else {
-        alert("Numéro de rapport invalide. Veuillez choisir un numéro entre 1 et " + liensRapports.length);
+    if (module && module.compteRendu && module.compteRendu.tp1) {
+        const rapport = module.compteRendu.tp1.rapports[numero - 1];
+        
+        if (rapport && rapport.link && rapport.link !== '#') {
+            window.open(rapport.link, '_blank');
+        } else {
+            alert(`Le rapport ${numero} n'est pas encore disponible pour ${module.title}`);
+        }
     }
 }
 
-// Initialiser quand la page est chargée
-document.addEventListener('DOMContentLoaded', initCompteRendu);
+// SUPPRIMEZ cette ligne :
+// document.addEventListener('DOMContentLoaded', initCompteRendu);
     </script>
 </body>
 </html>
