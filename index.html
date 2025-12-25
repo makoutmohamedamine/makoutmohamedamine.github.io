@@ -9,16 +9,16 @@
     <style>
         /* Votre CSS existant reste inchangé */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-header { background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #7c3aed  50%, #db2777 75%, #dc2626 100%); }
+        body { font-family: 'Inter', sans-serif; background: radial-gradient(1px 1px at 20% 20%, rgba(255, 255, 255, 0.35) 0, transparent 40%), radial-gradient(1px 1px at 80% 30%, rgba(255, 255, 255, 0.35) 0, transparent 40%), linear-gradient(180deg, #0b1f2a 0%, #0f2f3a 40%, #0b1b2b 100%); color: #0f172a; }
+        .gradient-header { background: linear-gradient(135deg, #14532d 0%, #1a5c3d 30%, #c81e1e 70%, #7f1d1d 100%); }
         .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
         .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
         .animate-float { animation: float 6s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .text-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient { background: linear-gradient(135deg, #fef9c3 0%, #fbbf24 50%, #fb7185 100%); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
         .nav-link { position: relative; overflow: hidden; }
-        .nav-link::before { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); transition: left 0.3s ease; }
+        .nav-link::before { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, #22c55e, #f87171, #facc15); transition: left 0.3s ease; }
         .nav-link:hover::before { left: 0; }
         /* Style pour cacher le header */
         header.hidden {
@@ -57,7 +57,7 @@
             left: 0;
             width: 100%;
             height: calc(100vh - 80px);
-            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #7c3aed 50%, #db2777 75%, #dc2626 100%);
+            background: linear-gradient(135deg, #0d2f3f 0%, #14532d 25%, #c81e1e 75%, #7f1d1d 100%);
             box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             z-index: 999;
             overflow-y: auto;
@@ -103,7 +103,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="christmas-body">
     <!-- Header Principal -->
     <header class="gradient-header text-white relative overflow-hidden">
         <!-- Éléments décoratifs flottants -->
@@ -123,7 +123,7 @@
                         </div>
                         <div>
                             <h1 class="text-xl font-bold">Plateforme Académique</h1>
-                            <p class="text-sm text-blue-100">Système D'Informations Et Transformation Digital</p>
+                            <p class="text-sm text-blue-100">LST SITD vous souhaite une bonne annee 2026</p>
                         </div>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
@@ -162,7 +162,7 @@
         <div class="relative z-10 container mx-auto px-6 py-16">
             <div class="text-center">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                    Système D'Informations <span class="text-yellow-300">Transformation Digital</span>
+                    LST SITD <span class="text-yellow-300">vous souhaite une bonne annee 2026</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
 Avec SITD, chaque étudiant devient acteur du changement et leader de la transformation digitale.                </p>
@@ -1381,7 +1381,7 @@ Bonne journée à tous !</p>
                     { titre: 'Chapitre 4 : React Native/Flutter', duree: '6h', type: 'cours' },
                     { titre: 'Chapitre 5 : IoT et Capteurs', duree: '6h', type: 'cours' },
                     { titre: 'Chapitre 6 : APIs Mobile', duree: '8h', type: 'tp' },
-                    { titre: 'Chapitre 7 : Sécurité Mobile', duree: '6h', type: 'cours' },
+                    { titre: 'Chapitre 7 : Sécurité Mobil', duree: '6h', type: 'cours' },
                     { titre: 'Chapitre 8 : Publication Store', duree: '4h', type: 'tp' }
                 ]
             },
@@ -1521,8 +1521,8 @@ const chapterLinks = {
         'https://drive.google.com/file/d/11ToE3pVUuyTKjxLXXVH7A4zljK2iORrl/view?usp=sharing',
         'https://drive.google.com/file/d/1nrvaOhGfjnvZG4FdE771wQsGJ15u7UTv/view?usp=sharing',
         'https://drive.google.com/file/d/1-ZZHWJxL0gsxzoJKFqqXBvCYMOnBd_ZD/view?usp=sharing',
-       'https://drive.google.com/file/d/1ZHec2hQyfMaE9VGEvz9ICMMSEg1mY1ps/view?usp=sharing',
-        'https://drive.google.com/file/d/1eHOhy9v1jAEzgAUf07pILFo9CS8LdH4C/view?usp=sharing',
+        'https://drive.google.com/file/d/1-ZZHWJxL0gsxzoJKFqqXBvCYMOnBd_ZD/view?usp=sharing',
+        'https://drive.google.com/file/d/1ZHec2hQyfMaE9VGEvz9ICMMSEg1mY1ps/view?usp=sharing',
         'https://drive.google.com/file/d/1eHOhy9v1jAEzgAUf07pILFo9CS8LdH4C/view?usp=sharing'
         
     ],
