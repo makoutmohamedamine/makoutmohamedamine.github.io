@@ -7,25 +7,149 @@
     <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Votre CSS existant reste inchangé */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background: radial-gradient(1px 1px at 20% 20%, rgba(255, 255, 255, 0.35) 0, transparent 40%), radial-gradient(1px 1px at 80% 30%, rgba(255, 255, 255, 0.35) 0, transparent 40%), linear-gradient(180deg, #0b1f2a 0%, #0f2f3a 40%, #0b1b2b 100%); color: #0f172a; }
-        .gradient-header { background: linear-gradient(135deg, #14532d 0%, #1a5c3d 30%, #c81e1e 70%, #7f1d1d 100%); }
-        .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
-        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .text-gradient { background: linear-gradient(135deg, #fef9c3 0%, #fbbf24 50%, #fb7185 100%); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
-        .nav-link { position: relative; overflow: hidden; }
-        .nav-link::before { content: ''; position: absolute; bottom: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, #22c55e, #f87171, #facc15); transition: left 0.3s ease; }
-        .nav-link:hover::before { left: 0; }
+        /* === STYLE ACADÉMIQUE PROFESSIONNEL === */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700;900&display=swap');
+        
+        /* Variables CSS pour cohérence */
+        :root {
+            --primary-color: #1e3a5f;
+            --primary-dark: #0f2842;
+            --primary-light: #2d4f7c;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8edf4 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header académique élégant */
+        .gradient-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--primary-light) 100%);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .gradient-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>');
+            opacity: 0.5;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Navigation élégante */
+        .nav-link {
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* Cards académiques */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-color);
+        }
+
+        /* Text gradient académique */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Animations subtiles */
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
         /* Style pour cacher le header */
         header.hidden {
             display: none !important;
         }
-        
-        /* === MENU MOBILE CORRIGÉ === */
+
+        /* Boutons académiques */
+        button, .btn {
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        button:hover, .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Menu mobile académique */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -57,8 +181,8 @@
             left: 0;
             width: 100%;
             height: calc(100vh - 80px);
-            background: linear-gradient(135deg, #0d2f3f 0%, #14532d 25%, #c81e1e 75%, #7f1d1d 100%);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            box-shadow: var(--shadow-xl);
             z-index: 999;
             overflow-y: auto;
         }
@@ -74,7 +198,7 @@
         }
 
         .mobile-menu ul li {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .mobile-menu ul li a {
@@ -89,9 +213,61 @@
         }
 
         .mobile-menu ul li a:hover {
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
+        /* Styles pour les pages */
+        .page-content {
+            background: transparent;
+        }
+
+        /* Typographie académique */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.875rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Badges et labels */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Amélioration des inputs et formulaires */
+        input, textarea, select {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex;
@@ -100,10 +276,41 @@
             nav ul {
                 display: none;
             }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+        }
+
+        /* Scrollbar personnalisée */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
         }
     </style>
 </head>
-<body class="christmas-body">
+<body>
     <!-- Header Principal -->
     <header class="gradient-header text-white relative overflow-hidden">
         <!-- Éléments décoratifs flottants -->
@@ -123,7 +330,7 @@
                         </div>
                         <div>
                             <h1 class="text-xl font-bold">Plateforme Académique</h1>
-                            <p class="text-sm text-blue-100">LST SITD vous souhaite une bonne annee 2026</p>
+                            <p class="text-sm text-blue-100">LST SITD vous encourage dans vos examens ! 💪</p>
                         </div>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
@@ -162,7 +369,7 @@
         <div class="relative z-10 container mx-auto px-6 py-16">
             <div class="text-center">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                    LST SITD <span class="text-yellow-300">vous souhaite une bonne annee 2026</span>
+                    LST SITD <span class="text-yellow-300">vous souhaite bon courage pour vos examens ! 📚✨</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
 Avec SITD, chaque étudiant devient acteur du changement et leader de la transformation digitale.                </p>
@@ -1305,12 +1512,14 @@ Bonne journée à tous !</p>
                 couleur: 'purple',
                 chapitres: [
                     { titre: 'Chapitre 1 : Marketing Digital & Data Analytics', duree: '6h', type: 'cours' },
-                    { titre: 'Chapitre 2 : E-MAIL MARKETING', duree: '8h', type: 'cours' },
-                    { titre: 'Chapitre 3 : FACEBOOK Marketing', duree: '6h', type: 'cours' },
-                    { titre: 'Chapitre 4 : GOOGLE Analytics', duree: '4h', type: 'cours' },
-                    { titre: 'Chapitre 5 : LINKEDIN MARKETING', duree: '6h', type: 'cours' },
-                    { titre: 'Chapitre 6 : AFFILIATION', duree: '4h', type: 'cours' },
-                    { titre: 'Chapitre 7 : correction TP GA', duree: '6h', type: 'tp' }
+                    { titre: 'Chapitre 2 : E-MAIL MARKETING', duree: '8h', type: 'td' },
+                    { titre: 'Chapitre 3 : Social Media Marketing', duree: '6h', type: 'cours' },
+                    { titre: 'Chapitre 4 : Analytics Avancés', duree: '4h', type: 'tp' },
+                    { titre: 'Chapitre 5 : Content Marketing', duree: '6h', type: 'cours' },
+                    { titre: 'Chapitre 6 : Email Marketing', duree: '4h', type: 'td' },
+                    { titre: 'Chapitre 7 : Marketing Automation', duree: '6h', type: 'tp' },
+                    { titre: 'Chapitre 8 : ROI et KPI Digital', duree: '8h', type: 'cours' },
+                    { titre: 'Chapitre 9 : Étude de cas complète', duree: '5h', type: 'tp' }
                 ]
             },
             'programmation-objet': {
@@ -1547,12 +1756,13 @@ const chapterLinks = {
     'marketing-digital': [
         'https://drive.google.com/file/d/1CBbF9L8wrY3twtNMvILC_tgvBD7zCnr7/view?usp=sharing',
         'https://drive.google.com/file/d/1EfZmTPGFQhTqMrTUujRVx71eUVSTaZ6O/view?usp=sharing',
-        'https://drive.google.com/file/d/1SPe6ODuZJxHI-omB7fbpcaBN6CCm1svb/view?usp=sharing',
-        'https://drive.google.com/file/d/1ggC9lmdQVmf0lOlrWrdzb8bpNDEC_poZ/view?usp=sharing',
-        'https://drive.google.com/file/d/13YZdFtRt8tQlf59W24DlbfXok6FLTA8W/view?usp=sharing',
-        'https://drive.google.com/file/d/185anp1vkOFlAib3toGAbVxvOSJK32Tp_/view?usp=sharing',
-        'https://drive.google.com/file/d/1JfswDTE8kSQ5q2Dh0DZCJLeahf6GfFq9/view?usp=sharing'
-       
+        '/cours/marketing-digital/chapitre-3',
+        '/cours/marketing-digital/chapitre-4',
+        '/cours/marketing-digital/chapitre-5',
+        '/cours/marketing-digital/chapitre-6',
+        '/cours/marketing-digital/chapitre-7',
+        '/cours/marketing-digital/chapitre-8',
+        '/cours/marketing-digital/chapitre-9'
     ],
     'programmation-objet': [
         'https://drive.google.com/file/d/1JlBo9jsnYAKDMjeMRH1fS0DIbV6ap8Na/view?usp=drive_link',
@@ -1840,10 +2050,9 @@ const MODULES_DATA = {
             { label: 'TD 1: Correction ', link: 'https://drive.google.com/file/d/1am4aA6SlqFGDdOvzW9eq_rq2_8osEKk-/view?usp=sharing' }
         ],
         tp: [
-            { label: 'TP 1:APPLICATION D’ACHAT', link: 'https://drive.google.com/file/d/1E1x3NEpgSB-ISCtOu3-9H14EqO3B6Azx/view?usp=sharing' },
-           
-            { label: 'TP 2:APPLICATION DE VENTE', link: 'https://drive.google.com/file/d/1bLpB24H8zFZBEQBHDuV79OpxUA3n-71p/view?usp=sharing' },
-            { label: 'TP 3:MODULE DE SITE WEB E-COMMERCE', link: 'https://drive.google.com/file/d/1E0y2Tr4p5ikkw08Tkp8WMXmk3VfNjvFg/view?usp=sharing' }
+            { label: 'TP 1:APPLICATION D’ACHAT', link: 'https://drive.google.com/file/d/1bLpB24H8zFZBEQBHDuV79OpxUA3n-71p/view?usp=sharing' },
+            { label: 'TP 2:MODULE DE SITE WEB E-COMMERCE', link: 'https://drive.google.com/file/d/1E0y2Tr4p5ikkw08Tkp8WMXmk3VfNjvFg/view?usp=sharing' },
+            { label: 'TP 3:APPLICATION DE VENTE', link: 'https://drive.google.com/file/d/1E1x3NEpgSB-ISCtOu3-9H14EqO3B6Azx/view?usp=sharing' }
         ],
         pdf: [
             { label: 'Exam 22', link: 'https://drive.google.com/file/d/1Tmf8GyXlp18fDIY2zmMzQMdPFJn_eyyl/view?usp=sharing' },
